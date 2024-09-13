@@ -3,37 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaction Calculator</title>
+    <title>POS Transaction Calculator</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         label { display: block; margin: 10px 0 5px; }
         input { padding: 5px; width: 100%; max-width: 300px; }
         button { margin-top: 10px; padding: 10px 20px; }
-        .result { margin-top: 20px; font-weight: bold; }
+        .result_title { margin-top: 20px; font-weight: bold; }
+        .result { margin-top: 20px; font-weight: normal; }
+        .description { font-size: 0.9em; color: #666; margin-top: 5px; }
     </style>
 </head>
 <body>
-    <h1>Transaction Per Second Calculator</h1>
+    <h1>POS Transaction Calculator</h1>
 
     <label for="totalTransactions">Total Transactions:</label>
-    <input type="number" id="totalTransactions" required>
+    <p class="description">Enter the total number of transactions processed during the period.</p>
+    <input type="number" id="totalTransactions" placeholder="10000" required>
 
-    <label for="totalMonths">Number of Months:</label>
-    <input type="number" id="totalMonths" required>
+    <label for="totalDays">Number of Days:</label>
+    <p class="description">Enter the number of days that corresponds to the period.<br>The calculation will be more accurated if you have the total transactions for more than one single day.</p>
+    <input type="number" id="totalDays" placeholder="30" required>
 
     <label for="workingHours">Working Hours Per Day:</label>
-    <input type="number" id="workingHours" required>
+    <p class="description">Enter the number of hours a day the store is opened. 24 for a 24/7 store, for example.</p>
+    <input type="number" id="workingHours" placeholder="8" required>
 
     <label for="totalPos">Number of Points of Sale:</label>
-    <input type="number" id="totalPos" required>
+    <p class="description">Enter the total number of POSes.</p>
+    <input type="number" id="totalPos" placeholder="10" required>
    
     <br>
     
     <button onclick="calculateTransactions()">Calculate</button>
 
+    <h2>Results</h2>
+
+    <label class="result_title">Total Transactions:</label>
+
     <div class="result" id="totalTransactionsPerDay"></div>
     <div class="result" id="totalTransactionsPerMinute"></div>
     <div class="result" id="totalTransactionsPerSecond"></div>
+
+    <label class="result_title">Total Transactions Per Pos:</label>
+
+    <div class="result" id="totalTransactionsPerDayPerPos"></div>
+    <div class="result" id="totalTransactionsPerMinutePerPos"></div>
+    <div class="result" id="totalTransactionsPerSecondPerPos"></div>
 
     <script src="scripts/main.js"></script>
 </body>
