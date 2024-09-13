@@ -21,9 +21,9 @@ function calculateTransactions() {
     const totalTransactionsPerSecondPerPos = calculateTransactionsPerSecondPerPos(totalTransactions, totalDays, workingHours, totalPos).toFixed(2);
 
     // Display the result
-    document.getElementById('totalTransactionsPerDay').innerText = `Transactions per day per point of sale: ${totalTransactionsPerDay}`;
-    document.getElementById('totalTransactionsPerMinute').innerText = `Transactions per minute per point of sale: ${totalTransactionsPerMinute}`;
-    document.getElementById('totalTransactionsPerSecond').innerText = `Transactions per second per point of sale: ${totalTransactionsPerSecond}`;
+    document.getElementById('totalTransactionsPerDay').innerText = `Total transactions per day: ${totalTransactionsPerDay}`;
+    document.getElementById('totalTransactionsPerMinute').innerText = `Total transactions per minute: ${totalTransactionsPerMinute}`;
+    document.getElementById('totalTransactionsPerSecond').innerText = `Total transactions per second: ${totalTransactionsPerSecond}`;
 
     document.getElementById('totalTransactionsPerDayPerPos').innerText = `Transactions per day per point of sale: ${totalTransactionsPerDayPerPos}`;
     document.getElementById('totalTransactionsPerMinutePerPos').innerText = `Transactions per minute per point of sale: ${totalTransactionsPerMinutePerPos}`;
@@ -59,12 +59,12 @@ function calculateTransactionsPerDayPerPos(totalTransactions, totalDays, totalPo
     return totalTransactionsPerDay / totalPos;
 }
 
-function calculateTransactionsPerMinutePerPos(totalTransactions, totalMonths, workingHours, totalPos) {
-    const totalTransactionsPerMinute = calculateTransactionsPerMinute(totalTransactions, totalMonths, workingHours);
+function calculateTransactionsPerMinutePerPos(totalTransactions, totalDays, workingHours, totalPos) {
+    const totalTransactionsPerMinute = calculateTransactionsPerMinute(totalTransactions, totalDays, workingHours);
     return totalTransactionsPerMinute / totalPos;
 }
 
-function calculateTransactionsPerSecondPerPos(totalTransactions, totalMonths, workingHours, totalPos) {
-    const totalTransactionsPerSecond = calculateTransactionsPerSecond(totalTransactions, totalMonths, workingHours);
+function calculateTransactionsPerSecondPerPos(totalTransactions, totalDays, workingHours, totalPos) {
+    const totalTransactionsPerSecond = calculateTransactionsPerSecond(totalTransactions, totalDays, workingHours);
     return totalTransactionsPerSecond / totalPos;
 }
